@@ -12,6 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        touch('database/database.sqlite');
+        $repository=new Repository();
+        $repository->createDatabase();
+        $repository->fillDatabase();
+        $repository->updateRanking();
+        //$repository->teamMatches($teamId);
+        $repository->addUser('user@example.com', 'secret');
     }
 
 }
